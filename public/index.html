@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.bundle.min.js"></script>
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"rel="stylesheet"/>
+  <link href="style.css" rel="stylesheet">
+  <meta charset="utf-8">
+  <title>Tableau des clients</title>
+</head>
+<body>
+  <h1>Tableau des clients</h1>
+  <div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card-body">
+        <h5 class="card-title text-uppercase mb-0">Liste des clients</h5>
+        <br>
+        <button type="button" class="btn btn-primary" onclick="window.location.href"='/creation_client.html'><i class="fa fa-user"></i>Ajouter un client</button>
+      </div>
+      <div class="table-reponsive">
+        <table class="table no-wrap user-table mb-0">
+          <thead>
+            <tr>
+              <th scope="col" class="border-0 text-uppercase font-medium pl-4">#</th>
+              <th scope="col" class="border-0 text-uppercase font-medium">Nom Prénom</th>
+              <th scope="col" class="border-0 text-uppercase font-medium">Société</th>
+              <th scope="col" class="border-0 text-uppercase font-medium">Pays</th>
+              <th scope="col" class="border-0 text-uppercase font-medium">Email</th>
+              <th scope="col" class="border-0 text-uppercase font-medium">Création</th>
+              <th scope="col" class="border-0 text-uppercase font-medium "></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="pl-4">1</td>
+              <td>
+                <h5 class="font-medium mb-0">JEan lassalle</h5>
+              </td>
+              <td>
+                <span class="text-muted">Polytech</span>
+              </td>
+              <td>
+                <span class="text-muted">France</span>
+              </td>
+              <td>
+                <span class="text-muted">jean-lassale@outlook.fr</span>
+              </td>
+              <td>
+                <span class="text-muted">07 mars 2023</span>
+                <span class="text-muted">14:16</span>
+              </td>
+              <td>
+                <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i class="fa fa-edit"></i></button>
+              </td>
+
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  </div>
+
+</body>
+</html>

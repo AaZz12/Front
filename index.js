@@ -18,11 +18,6 @@ app.listen(port, () => {
 
 app.use(express.static('public'));
 
-let users =[];
-let lastIndex=0;
 
-app.get('/users',(req,res)=>{
-    Logger.log(`Getting users at ${req.ip}`);
-    res.send(users);
-});
+
 
