@@ -7,8 +7,17 @@
   <script src="index.js"></script>
 </head>
 <body>
-  ...
-  <!-- Le reste du contenu -->
-  ...
+  <h1>Création de clients</h1>
+  <form method="get" action="./index.js"><!--création d'un formulaire dans un form-->
+    <label for="firstName">Prénom</label>
+    <input id="firstName" type="text" required><!--on utilise "required" pour que le navigateur ne laisse pas l'internaute passer à la suite sans que ce champ ne soit rempli-->
+    <label for="lastName">Nom</label>			
+    <input id="lastName" type="text" required><br><br>
+    <label for="emailAdress">Adresse mail</label>
+    <input id="emailAdress" type="email" required><br><br>
+    <label for="Société">Société</label>
+		<input id="Société" type="text" required><br><br>
+    <input id="submitQuiz" type="submit" value="J'ai fini, passer au quiz !" onclick="window.location.href"='/formulaire.html'> 
+  </form>
 </body>
 </html>
