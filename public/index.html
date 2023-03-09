@@ -87,46 +87,60 @@
   </div>
   </div>
   <div id="info_client"></div>
-  <script>
-    //on crée un tableau pour stokcer nos clients
-    var tableauClients = [];
-    //on stocke l'url de la page actuelle dans une variable
-    var url = new URL(window.location.href);
+<script>
+  //on crée un tableau pour stokcer nos clients
+  var tableauClients = [];
 
-    //on extrait les paramètres de l'url
-    var params = new URLSearchParams(url.search); 
-  
-    //on recupere les valeurs de l'url dans des variables
-    var prenom = params.get('firstName');
-    var email = params.get('email');
-    var nom = params.get('lastName');
-    var Societe=params.get('Societe');
-  
-    //vérif dans console
-    console.log('Prénom: ' + prenom);
-    console.log('Nom: ' + nom);
-    console.log('Mail: ' + email);
-    console.log('Societe: '+ Societe);
+  //on récupère les informations précédentes depuis le stockage local
+  var clientsPrec = localStorage.getItem("clients");
+  if (clientsPrec !== null) {
+    tableauClients = JSON.parse(clientsPrec);
+  }
 
-    //on stocke les infos du client dans un json
-    var info_client = {
-      prenom: prenom,
-      nom: nom,
-      email: email,
-      Societe: Societe
-    };
-    //on psuh le json dans le tableau
+  //on stocke l'url de la page actuelle dans une variable
+  var url = new URL(window.location.href);
+
+  //on extrait les paramètres de l'url
+  var params = new URLSearchParams(url.search); 
+
+  //on recupere les valeurs de l'url dans des variables
+  var prenom = params.get('firstName');
+  var email = params.get('email');
+  var nom = params.get('lastName');
+  var Societe=params.get('Societe');
+
+  //vérif dans console
+  console.log('Prénom: ' + prenom);
+  console.log('Nom: ' + nom);
+  console.log('Mail: ' + email);
+  console.log('Societe: '+ Societe);
+
+  //on stocke les infos du client dans un json
+  var info_client = {
+    prenom: prenom,
+    nom: nom,
+    email: email,
+    Societe: Societe
+  };
+  //on push le json dans le tableau
+  if((prenom!==null)&(nom!==null)&(email!==null)&(Societe!==null)){
     tableauClients.push(info_client);
+  }
 
-     //on affiche les valeurs du tableau dans l'html
-     var infoHTML = "";
-    for (var i = 0; i < tableauClients.length; i++) {
-      var r = tableauClients[i];
-      infoHTML += "Prénom : " + r.prenom  + "   Nom : " + r.nom + "   Mail : " + r.email + "   " + "   Société : " + r.Societe;
+  //on sauvegarde le tableau mis à jour dans le stockage local
+  localStorage.setItem("clients", JSON.stringify(tableauClients));
+
+  //on affiche les valeurs du tableau dans l'html
+  var infoHTML = "";
+  for (var i = 0; i < tableauClients.length; i++) {
+    var r = tableauClients[i];
+    if((r.prenom!==null)&(r.nom!==null)&(r.email!==null)&(r.Societe!==null)){
+      infoHTML += "<p>Prénom : " + r.prenom  + "<p>Nom : " + r.nom + "<p>Mail : " + r.email + "   " + "<p>Société : " + r.Societe;
     }
+  }
 
-    var resultatElement = document.getElementById("info_client");
-    resultatElement.innerHTML = infoHTML;
-  </script>
+  var resultatElement = document.getElementById("info_client");
+  resultatElement.innerHTML = infoHTML;
+</script>
 </body>
 </html>
