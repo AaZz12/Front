@@ -3,7 +3,7 @@
 // --------------- MODULES IMPORT ---------------
 
 
-const express = require('express');
+const express = require("express");
 
 
 // --------------- SERVER SETUP ---------------
@@ -16,8 +16,4 @@ app.listen(port, () => {
     console.log(`App listening to port ${port}`);
 });
 
-app.use(express.static('public'));
-
-
-
-
+app.use(express.static("public"));
