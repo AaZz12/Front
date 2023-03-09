@@ -88,6 +88,12 @@
   </div>
   <div id="info_client"></div>
 <script>
+  //pour clear le tableau
+  //tableauClients.splice(0, tableauClients.length);
+
+  //pour clear le stockage local
+  //localStorage.clear();
+  
   //on crée un tableau pour stokcer nos clients
   var tableauClients = [];
 
@@ -110,10 +116,10 @@
   var Societe=params.get('Societe');
 
   //vérif dans console
-  console.log('Prénom: ' + prenom);
+  /*console.log('Prénom: ' + prenom);
   console.log('Nom: ' + nom);
   console.log('Mail: ' + email);
-  console.log('Societe: '+ Societe);
+  console.log('Societe: '+ Societe);*/
 
   //on stocke les infos du client dans un json
   var info_client = {
@@ -122,8 +128,19 @@
     email: email,
     Societe: Societe
   };
-  //on push le json dans le tableau
-  if((prenom!==null)&(nom!==null)&(email!==null)&(Societe!==null)){
+  //on vérifie si le client n'est pas déjà présent dans le tableau avant de l'ajouter
+  var clientExist = false;
+  for (var i = 0; i < tableauClients.length; i++) {
+    var r = tableauClients[i];
+    if (r.prenom === prenom && r.nom === nom && r.email === email && r.Societe === Societe) {
+      //s'il existe, on met la valeur à true et on tue la boucle (inutile d'aller + loin)(possible avec un while)
+      clientExist = true;
+      break;
+    }
+  }
+
+  //si le client n'existe pas déjà, on push
+  if (!clientExist) {
     tableauClients.push(info_client);
   }
 
